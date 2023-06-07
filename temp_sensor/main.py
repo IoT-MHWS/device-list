@@ -1,10 +1,17 @@
+if __name__ != "__main__":
+    exit(0)
+
 import paho.mqtt.client as mqtt
 import json
 import sys
 import time
+import os
 
-if __name__ != "__main__":
-    exit(0)
+# Add generated directory to python module path
+ROOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+sys.path.append(os.path.join(ROOT_DIR, "_gen"))
+
+import cwspb.physical_pb2
 
 if len(sys.argv) != 6:
     print("Args: <broker_address> <broker_port> <room_id> <sensor_id> <polling_rate_ms>")
