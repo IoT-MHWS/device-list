@@ -13,18 +13,19 @@ sys.path.append(os.path.join(ROOT_DIR, "_gen"))
 
 import cwspb.physical_pb2
 
-if len(sys.argv) != 6:
-    print("Args: <broker_address> <broker_port> <room_id> <sensor_id> <polling_rate_ms>")
+if len(sys.argv) != 7:
+    print("Args: <broker_address> <broker_port> <building_id> <room_id> <sensor_id> <polling_rate_ms>")
     sys.exit(1)
 
 sensor_type = "temp"
 broker_address = sys.argv[1]
 broker_port = int(sys.argv[2])
-room_id = sys.argv[3]
-sensor_id = sys.argv[4]
-polling_rate = int(sys.argv[5])
+build_id = sys.argv[3]
+room_id = sys.argv[4]
+sensor_id = sys.argv[5]
+polling_rate = int(sys.argv[6])
 
-mqtt_topic = f"/cws/{room_id}/{sensor_type}/{sensor_id}"
+mqtt_topic = f"/cws/building_{0}/room_{room_id}/type_{sensor_type}/sensor_{sensor_id}"
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
