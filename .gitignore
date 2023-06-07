@@ -2,3 +2,4 @@
 _gen/
 .vscode/
 pyrightconfig.json
+__pycache__/
