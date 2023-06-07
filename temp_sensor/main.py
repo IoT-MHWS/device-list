@@ -45,7 +45,7 @@ def process_arguments() -> InputArgs:
         broker_address, broker_port = sys.argv[1].split(":")
         map_address, map_port = sys.argv[2].split(":")
         building_id, room_id, type_id, device_id = sys.argv[3].split(":")
-        c_x, c_y, map_type, map_idx = sys.argv[4].split(":")
+        c_x, c_y = sys.argv[4].split(":")
         polling_rate = sys.argv[5]
     except ValueError:
         raise ValueError(f"Look in process_argument() for valid argument passing")
@@ -59,7 +59,7 @@ def process_arguments() -> InputArgs:
             type_id=type_id,
             device_id=device_id,
         ),
-        map_id=MapId(c_x=int(c_x), c_y=int(c_y), typ=int(map_type), idx=int(map_idx)),
+        map_id=MapId(c_x=int(c_x), c_y=int(c_y), typ=int(type_id), idx=int(device_id)),
         polling_rate_ms=int(polling_rate),
     )
 
