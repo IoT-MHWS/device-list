@@ -1,11 +1,12 @@
 import paho.mqtt.client as mqtt
+import logging
 
 
 def mqtt_on_connect(client, userdata, flags, rc):
     if rc == 0:
-        print("Connected to MQTT broker")
+        logging.error("Connected to MQTT broker")
     else:
-        print(f"Failed to connect, return code: {rc}")
+        logging.error(f"Failed to connect, return code: {rc}")
 
 
 def mqtt_connect_loop(address: str, port: int) -> mqtt.Client:
