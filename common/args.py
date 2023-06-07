@@ -9,7 +9,10 @@ InputArgs = namedtuple(
 )
 
 
-def process_arguments() -> InputArgs:
+def process_arguments(count: int = 6) -> InputArgs:
+    if len(sys.argv) != count:
+        raise ValueError(f"Invalid count of arguments")
+
     try:
         broker_address, broker_port = sys.argv[1].split(":")
         map_address, map_port = sys.argv[2].split(":")
