@@ -9,9 +9,15 @@ InputArgs = namedtuple(
 )
 
 
-def process_arguments(count: int = 6) -> InputArgs:
-    if len(sys.argv) != count:
-        raise ValueError(f"Invalid count of arguments")
+def process_arguments(count: int = 6, strict: bool = True) -> InputArgs:
+    count_err_msg = f"Invalid count of arguments"
+
+    if strict:
+        if len(sys.argv) != count:
+            raise ValueError(count_err_msg)
+    else:
+        if len(sys.argv) < count:
+            raise ValueError(count_err_msg)
 
     try:
         broker_address, broker_port = sys.argv[1].split(":")
