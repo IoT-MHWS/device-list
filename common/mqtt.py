@@ -4,7 +4,7 @@ import logging
 
 def mqtt_on_connect(client, userdata, flags, rc):
     if rc == 0:
-        logging.error("Connected to MQTT broker")
+        logging.info("Connected to MQTT broker")
     else:
         logging.error(f"Failed to connect, return code: {rc}")
 
