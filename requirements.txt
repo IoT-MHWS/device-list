@@ -1,1 +1,4 @@
+grpcio==1.54.2
+grpcio-tools==1.54.2
 paho-mqtt==1.6.1
+protobuf==4.23.2
