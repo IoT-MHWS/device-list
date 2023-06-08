@@ -84,7 +84,6 @@ if __name__ == "__main__":
             logging.error(f"Failed to connect, return code: {rc}")
 
     def mqtt_on_message(client, userdata, msg):
-        print("CALLED")
         try:
             payload = json.loads(msg.payload.decode())
             turnable_status = payload["turnable_status"]

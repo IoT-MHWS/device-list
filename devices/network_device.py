@@ -116,8 +116,4 @@ if __name__ == "__main__":
                 print(packets)
             time.sleep(polling_rate_ms / 1000)
 
-    mqtt_topic = mqtt_get_topic(
-        mqtt_id.building_id, mqtt_id.room_id, mqtt_id.type_id, mqtt_id.device_id
-    )
-
     grpc_channel.close()
